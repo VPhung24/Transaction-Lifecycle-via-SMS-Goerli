@@ -6,10 +6,10 @@ from websocket import create_connection
 import os
 from twilio.rest import Client
 
-account_sid = os.getenv('TWILLIO_ACCOUNT_SID')
-auth_token = os.getenv('TWILLIO_AUTH_TOKEN')
-from_phone_number = str(os.getenv('TWILLIO_PHONE_NUMBER'))
-to_phone_number = str(os.getenv('TWILLIO_SEND_UPDATES_TO_PHONE_NUMBER'))
+account_sid = os.getenv('TWILIO_ACCOUNT_SID')
+auth_token = os.getenv('TWILIO_AUTH_TOKEN')
+from_phone_number = str(os.getenv('TWILIO_PHONE_NUMBER'))
+to_phone_number = str(os.getenv('TWILIO_SEND_UPDATES_TO_PHONE_NUMBER'))
 
 client = Client(account_sid, auth_token)
 

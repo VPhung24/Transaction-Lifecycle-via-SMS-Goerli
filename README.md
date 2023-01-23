@@ -22,3 +22,10 @@ Since the repo's last update, Rinkeby has been depricated so Goerli is used.
 
 - `foreman start`
 - On macOS, if running into error "Port 5000 is in use by another program", try turning off Airplay Reciever (System Preferences -> Sharing -> AirPlay Receiver)
+
+### Deploy on Heroku
+
+- `heroku create`
+- `git add .`
+- `git commit -m "<comment>"`
+- `git push heroku main`
