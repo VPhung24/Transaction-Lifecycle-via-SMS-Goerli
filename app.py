@@ -2,7 +2,7 @@
 import os
 from flask import Flask, request
 from twilio.rest import Client
-from helper import account_sid, auth_token, from_phone_number, to_phone_number
+from helper import account_sid, auth_token, from_phone_number, to_phone_number, Chain, subscribeToChain, ChainInfo
 
 client = Client(account_sid, auth_token)
 
@@ -28,11 +28,10 @@ def request_handler():
         print("HASH: ", hash)
 
         message = client.messages.create(body=" \n\n TX MINED! \n\n From: " + from_address + " \n\n To: " + to_address + " \n\n @#:" +
-                                         blockNum + " \n Check tx: https://goerli.etherscan.io/tx/" + hash, from_=from_phone_number, to=to_phone_number)
+                                         blockNum + " \n Check tx: " + subscribeToChain.block_explorer_url + hash, from_=from_phone_number, to=to_phone_number)
         print(message.sid)
 
     return ("Ok")
-    # return webhook(session), 200
 
 
 def run():

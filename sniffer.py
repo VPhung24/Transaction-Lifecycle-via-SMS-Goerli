@@ -1,17 +1,17 @@
+import os
 import json
 import time
 from websocket import create_connection
-import os
 from twilio.rest import Client
 import pickle
-from helper import account_sid, auth_token, alchemy_key, from_phone_number, to_phone_number
+from helper import account_sid, auth_token, from_phone_number, to_phone_number, Chain, subscribeToChain, ChainInfo
 
 client = Client(account_sid, auth_token)
 
 for i in range(3):
     try:
         ws = create_connection(
-            "wss://eth-goerli.g.alchemy.com/v2/"+alchemy_key)
+            subscribeToChain.websocket_url + subscribeToChain.alchemy_key)
         print("Connection made")
     except Exception as error:
         print('Connection Error: ' + repr(error))

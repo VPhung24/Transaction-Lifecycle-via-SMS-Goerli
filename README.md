@@ -2,7 +2,7 @@
 
 This is working off of [Alchemy's](https://www.alchemy.com/) [Transaction-Lifecycle-via-SMS](https://github.com/alchemyplatform/Transaction-Lifecycle-via-SMS) repo, an example to show how "your dApp can integrate the power of Alchemy's Enhanced API suite"
 
-Since the repo's last update, Rinkeby has been depricated so Goerli is used.
+Since the repo's last update, Rinkeby has been depricated. Currently this repo enabales users to choose between `Goerli`, `Polygon`, and `Eth` for pending tranactions.
 
 ### Geting Started
 
@@ -17,6 +17,10 @@ Since the repo's last update, Rinkeby has been depricated so Goerli is used.
 - [Twilio SMS](https://www.twilio.com/): Account SID, Auth Token, Twilio Phone Number
 - [Alchemy](https://www.alchemy.com/): API Key
   - [Alchemy's Goerli faucet](https://goerlifaucet.com/): 0.2 Goerli ETH every 24h
+
+### (currently hardcoded) Chain to get notifed pending transactions from (options Goerli, Polygon, Ethereum)
+
+- change `subscribeToChain` in `helper.py` to wanted chain
 
 ### Test and Run Locally
 
