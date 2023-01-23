@@ -1,0 +1,12 @@
+{
+  "name": "Python3 SMS Tutorial on Tx Lifecycles",
+  "description": "",
+  "repository": "",
+  "logo": "",
+  "website": "",
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
