@@ -18,7 +18,7 @@ Since the repo's last update, Rinkeby has been depricated so Goerli is used.
 - [Alchemy](https://www.alchemy.com/): API Key
   - [Alchemy's Goerli faucet](https://goerlifaucet.com/): 0.2 Goerli ETH every 24h
 
-### Run Locally
+### Test and Run Locally
 
 - `foreman start`
 - On macOS, if running into error "Port 5000 is in use by another program", try turning off Airplay Reciever (System Preferences -> Sharing -> AirPlay Receiver)

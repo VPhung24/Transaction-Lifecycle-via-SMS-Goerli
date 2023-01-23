@@ -1,7 +1,7 @@
 {
-  "name": "Python3 SMS Tutorial on Tx Lifecycles",
-  "description": "",
-  "repository": "",
+  "name": "Text Alerts for an address",
+  "description": "Using Alchemy, receive text alerts (Twilio) for an addresses transactions",
+  "repository": "https://github.com/VPhung24/Transaction-Lifecycle-via-SMS-Goerli",
   "logo": "",
   "website": "",
   "buildpacks": [
