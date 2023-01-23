@@ -30,15 +30,11 @@ print("JSON eth_subscribe sent")
 while True:
     try:
         result = ws.recv()
-        result = json.loads(result)
-        from_address = (result["params"]["result"]["from"])
-        to_address = (result["params"]["result"]["to"])
-        hash = (result["params"]["result"]["hash"])
-        blockHash = (result["params"]["result"]["blockNumber"])
-
-        # data = pickle.load( open( "data.p", "rb" ) )
-        # data.add(hash)
-        # pickle.dump(data, open( "data.p", "wb" ) )
+        result = json.loads(result)["params"]["result"]
+        from_address = (result["from"])
+        to_address = (result["to"])
+        hash = (result["hash"])
+        blockHash = (result["blockNumber"])
 
         print("from:", from_address)
         print("to:", to_address)
@@ -55,9 +51,6 @@ while True:
             )
 
         print(message.sid)
-
-        # data = pickle.load( open( "data.p", "rb" ) )
-        # print(data)
 
     except KeyError as error:
         print("Check JSON params for parsing")
