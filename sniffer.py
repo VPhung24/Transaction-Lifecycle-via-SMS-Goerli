@@ -4,7 +4,7 @@ import time
 from websocket import create_connection
 from twilio.rest import Client
 import pickle
-from helper import account_sid, auth_token, from_phone_number, to_phone_number, Chain, subscribeToChain, ChainInfo
+from helper import account_sid, auth_token, from_phone_number, to_phone_number, subscribeToChain, ChainInfo
 
 client = Client(account_sid, auth_token)
 
