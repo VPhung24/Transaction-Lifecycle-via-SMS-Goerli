@@ -4,13 +4,9 @@ from websocket import create_connection
 import os
 from twilio.rest import Client
 import pickle
+from helper import account_sid, auth_token, alchemy_key, from_phone_number, to_phone_number
 
-account_sid = os.getenv('TWILIO_ACCOUNT_SID')
-auth_token = os.getenv('TWILIO_AUTH_TOKEN')
 client = Client(account_sid, auth_token)
-alchemy_key = os.getenv('ALCHEMY_KEY')
-from_phone_number = os.getenv('TWILIO_PHONE_NUMBER')
-to_phone_number = os.getenv('TWILIO_SEND_UPDATES_TO_PHONE_NUMBER')
 
 for i in range(3):
     try:

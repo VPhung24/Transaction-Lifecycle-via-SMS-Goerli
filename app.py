@@ -2,11 +2,7 @@
 import os
 from flask import Flask, request
 from twilio.rest import Client
-
-account_sid = os.getenv('TWILIO_ACCOUNT_SID')
-auth_token = os.getenv('TWILIO_AUTH_TOKEN')
-from_phone_number = os.getenv('TWILIO_PHONE_NUMBER')
-to_phone_number = os.getenv('TWILIO_SEND_UPDATES_TO_PHONE_NUMBER')
+from helper import account_sid, auth_token, from_phone_number, to_phone_number
 
 client = Client(account_sid, auth_token)
 
