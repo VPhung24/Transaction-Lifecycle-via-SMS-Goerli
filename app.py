@@ -59,8 +59,8 @@ def pears():
 
 
 class LoginForm(FlaskForm):
-    address = StringField('Address', validators=[
-        DataRequired(), Length(69)])
+    tx = StringField('tx', validators=[
+        DataRequired(), Length(64)])
     chain = SelectField(
         choices=[('Polygon', 'Polygon'), ('Ethereum', 'Ethereum'), ('Goerli', 'Goerli')])
     submit = SubmitField()

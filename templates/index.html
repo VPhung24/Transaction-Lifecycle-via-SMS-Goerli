@@ -1,4 +1,8 @@
-{% from 'bootstrap5/form.html' import render_form %} {% extends "base.html" %}
+{% from 'bootstrap5/form.html' import render_form, render_hidden_errors %} {% extends "base.html" %}
 {% block content %}
+  <div class="position-absolute top-50 start-50 translate-middle">
+    {{ form.hidden_tag() }}
+    {{ render_hidden_errors(form) }}
     {{ render_form(form, form_type='inline', method='post') }}
+      </div>
 {% endblock %}
