@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import os
-from flask import Flask, request, render_template, url_for, redirect
+from flask import Flask, request, render_template
 from twilio.rest import Client
-from helper import account_sid, auth_token, from_phone_number, to_phone_number, Chain, subscribeToChain, ChainInfo
+from helper import account_sid, auth_token, from_phone_number, to_phone_number, subscribeToChain
 from flask_bootstrap import Bootstrap5
 from flask_wtf import FlaskForm
 from wtforms import (StringField, SubmitField, PasswordField, SelectField)
@@ -41,21 +41,6 @@ def request_handler():
 
     form = LoginForm(request.form)
     return render_template('index.html', form=form)
-
-
-@app.route('/helloWorld/')
-def hello_world():
-    return 'Hello World!'
-
-
-@app.route('/readme/')
-def read_me():
-    return 'read me!'
-
-
-@app.route('/pears/')
-def pears():
-    return 'pears'
 
 
 class LoginForm(FlaskForm):
