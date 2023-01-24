@@ -1,14 +1,22 @@
 # -*- coding: utf-8 -*-
 import os
-from flask import Flask, request
+from flask import Flask, request, render_template, url_for, redirect
 from twilio.rest import Client
 from helper import account_sid, auth_token, from_phone_number, to_phone_number, Chain, subscribeToChain, ChainInfo
+from flask_bootstrap import Bootstrap5
+from flask_wtf import FlaskForm
+from wtforms import (StringField, SubmitField, PasswordField, SelectField)
+from wtforms.validators import DataRequired, Length
 
 client = Client(account_sid, auth_token)
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
+bootstrap = Bootstrap5(app)
 app.debug = True
-queue = []
+app.config.update(dict(
+    SECRET_KEY=os.getenv('SECRET_KEY'),
+    WTF_CSRF_SECRET_KEY=os.getenv('WTF_CSRF_SECRET_KEY')
+))
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -31,7 +39,31 @@ def request_handler():
                                          blockNum + " \n Check tx: " + subscribeToChain.block_explorer_url + hash, from_=from_phone_number, to=to_phone_number)
         print(message.sid)
 
-    return ("Ok")
+    form = LoginForm(request.form)
+    return render_template('index.html', form=form)
+
+
+@app.route('/helloWorld/')
+def hello_world():
+    return 'Hello World!'
+
+
+@app.route('/readme/')
+def read_me():
+    return 'read me!'
+
+
+@app.route('/pears/')
+def pears():
+    return 'pears'
+
+
+class LoginForm(FlaskForm):
+    address = StringField('Address', validators=[
+        DataRequired(), Length(69)])
+    chain = SelectField(
+        choices=[('Polygon', 'Polygon'), ('Ethereum', 'Ethereum'), ('Goerli', 'Goerli')])
+    submit = SubmitField()
 
 
 def run():
